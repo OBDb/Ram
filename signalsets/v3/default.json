@@ -3,12 +3,19 @@
   "signals": [
     {"id": "RAM_HVBAT_SOC", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 512, "unit": "percent" }, "name": "HV battery charge", "suggestedMetric": "stateOfCharge"}
   ]},
-{ "hdr": "740", "rax": "4C0", "fcm1": true, "dbg": true, "cmd": {"22": "A0A1"}, "freq": 5,
+{ "hdr": "740", "fcm1": true, "din": "03", "dbg": true, "cmd": {"22": "A0A1"}, "freq": 5,
   "signals": [
-    {"id": "RAM_TP_FL_AC", "path": "Tires", "fmt": {           "len": 8, "max": 255, "unit": "psi" }, "name": "Front left tire pressure, altitude compensated",  "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "RAM_TP_FR_AC", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 255, "unit": "psi" }, "name": "Front right tire pressure, altitude compensated", "suggestedMetric": "frontRightTirePressure"},
-    {"id": "RAM_TP_RR_AC", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 255, "unit": "psi" }, "name": "Rear right tire pressure, altitude compensated",  "suggestedMetric": "rearRightTirePressure"},
-    {"id": "RAM_TP_RL_AC", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 255, "unit": "psi" }, "name": "Rear left tire pressure, altitude compensated",   "suggestedMetric": "rearLeftTirePressure"}
+    {"id": "RAM_TPAC_FL",  "path": "Tires", "fmt": {           "len": 8, "max": 0.255, "unit": "psi" }, "name": "Front left tire pressure, altitude compensated",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "RAM_TP_FL_AC", "path": "Tires", "fmt": {           "len": 8, "max": 255,   "unit": "psi" }, "name": "Front left tire pressure, altitude compensated",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "RAM_TP_FR_AC", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 255,   "unit": "psi" }, "name": "Front right tire pressure, altitude compensated", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "RAM_TP_RR_AC", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 255,   "unit": "psi" }, "name": "Rear right tire pressure, altitude compensated",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "RAM_TP_RL_AC", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 255,   "unit": "psi" }, "name": "Rear left tire pressure, altitude compensated",   "suggestedMetric": "rearLeftTirePressure"}
+  ]},
+{ "hdr": "740", "fcm1": true, "din": "03", "dbg": true, "cmd": {"22": "A0F1"}, "freq": 5,
+  "signals": [
+    {"id": "RAM_TP_FL_740", "path": "Tires", "fmt": {          "len": 16, "max": 65.535,                           "div": 1000,             "unit": "bars"    }, "name": "Front left tire pressure",    "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "RAM_TP_FL",     "path": "Tires", "fmt": {          "len": 8,  "max": 101.49,             "mul": 0.398,                          "unit": "psi"     }, "name": "Front left tire pressure",    "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "RAM_TT_FL",     "path": "Tires", "fmt": {"bix": 8, "len": 8,  "max": 205,    "min": -50,                            "add": -50, "unit": "celsius" }, "name": "Front left tire temperature"}
   ]},
 { "hdr": "740", "rax": "4C0", "fcm1": true, "dbg": true, "cmd": {"22": "A0A5"}, "freq": 5,
   "signals": [
@@ -16,11 +23,6 @@
     {"id": "RAM_TP_RR_VALID", "path": "Tires", "fmt": {"bix": 5, "len": 1, "max": 1, "unit": "noyes" }, "name": "Rear right tire pressure, valid?"},
     {"id": "RAM_TP_FR_VALID", "path": "Tires", "fmt": {"bix": 6, "len": 1, "max": 1, "unit": "noyes" }, "name": "Front right tire pressure, valid?"},
     {"id": "RAM_TP_FL_VALID", "path": "Tires", "fmt": {"bix": 7, "len": 1, "max": 1, "unit": "noyes" }, "name": "Front left tire pressure, valid?"}
-  ]},
-{ "hdr": "740", "rax": "4C0", "fcm1": true, "dbg": true, "cmd": {"22": "A0F1"}, "freq": 5,
-  "signals": [
-    {"id": "RAM_TP_FL_V3", "path": "Tires", "fmt": {          "len": 8, "max": 101.49,             "mul": 0.398,             "unit": "psi"     }, "name": "Front left tire pressure",    "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "RAM_TT_FL_V2", "path": "Tires", "fmt": {"bix": 8, "len": 8, "max": 205,    "min": -50,               "add": -50, "unit": "celsius" }, "name": "Front left tire temperature"}
   ]},
 { "hdr": "740", "rax": "4C0", "fcm1": true, "dbg": true, "cmd": {"22": "A0F2"}, "freq": 5,
   "signals": [
@@ -39,10 +41,10 @@
   ]},
 { "hdr": "742", "rax": "4C2", "fcm1": true, "dbg": true, "cmd": {"22": "A077"}, "freq": 5,
   "signals": [
-    {"id": "RAM_TP_FL", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 255, "unit": "psi" }, "name": "Tire pressure front left",  "suggestedMetric": "frontRightTirePressure"},
-    {"id": "RAM_TP_FR", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 255, "unit": "psi" }, "name": "Tire pressure front right", "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "RAM_TP_RL", "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 255, "unit": "psi" }, "name": "Tire pressure rear left",   "suggestedMetric": "rearRightTirePressure"},
-    {"id": "RAM_TP_RR", "path": "Tires", "fmt": {"bix": 48, "len": 8, "max": 255, "unit": "psi" }, "name": "Tire pressure rear right",  "suggestedMetric": "rearLeftTirePressure"}
+    {"id": "RAM_TP_FL_V2", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 255, "nullmax": 255, "unit": "psi" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "RAM_TP_FR",    "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 255, "nullmax": 255, "unit": "psi" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "RAM_TP_RL",    "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 255, "nullmax": 255, "unit": "psi" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "RAM_TP_RR",    "path": "Tires", "fmt": {"bix": 48, "len": 8, "max": 255, "nullmax": 255, "unit": "psi" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"}
   ]},
 { "hdr": "763", "rax": "4E3", "fcm1": true, "dbg": true, "cmd": {"22": "032D"}, "freq": 0.25,
   "signals": [
@@ -67,11 +69,35 @@
     {"id": "RAM_GPS_SATS_TRACKED", "path": "GPS", "fmt": {"bix": 200, "len": 4,  "max": 15,    "unit": "scalar"  }, "name": "Satellites, tracked"},
     {"id": "RAM_GPS_SATS_VISIBLE", "path": "GPS", "fmt": {"bix": 204, "len": 4,  "max": 15,    "unit": "scalar"  }, "name": "Satellites, visible"}
   ]},
-{ "hdr": "7E1", "dbg": true, "cmd": {"22": "04FE"}, "freq": 1,
+{ "hdr": "7DA", "din": "03", "dbg": true, "cmd": {"22": "A020"}, "freq": 5,
   "signals": [
-    {"id": "RAM_ATF_T", "path": "Transmission", "fmt": { "len": 8, "max": 300, "min": -30, "mul": 1.8, "add": -40, "unit": "fahrenheit" }, "name": "Transmission temperature"}
+    {"id": "RAM_TP_FL_7DA", "path": "Tires", "fmt": { "len": 8, "max": 92, "mul": 92.46, "div": 255, "unit": "psi" }, "name": "Front left tire pressure"}
   ]},
-{ "hdr": "7E1", "fcm1": true, "dbg": true, "cmd": {"22": "5503"}, "freq": 1,
+{ "hdr": "7DA", "din": "03", "dbg": true, "cmd": {"22": "A021"}, "freq": 5,
+  "signals": [
+    {"id": "RAM_TP_FR_7DA", "path": "Tires", "fmt": { "len": 8, "max": 92, "mul": 92.46, "div": 255, "unit": "psi" }, "name": "Front right tire pressure"}
+  ]},
+{ "hdr": "7DA", "din": "13", "dbg": true, "cmd": {"22": "A022"}, "freq": 5,
+  "signals": [
+    {"id": "RAM_TP_RL_7DA", "path": "Tires", "fmt": { "len": 8, "max": 92, "mul": 92.46, "div": 255, "unit": "psi" }, "name": "Rear left tire pressure"}
+  ]},
+{ "hdr": "7DA", "din": "03", "dbg": true, "cmd": {"22": "A023"}, "freq": 5,
+  "signals": [
+    {"id": "RAM_TP_RR_7DA", "path": "Tires", "fmt": { "len": 8, "max": 92, "mul": 92.46, "div": 255, "unit": "psi" }, "name": "Rear right tire pressure"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "18"}, "freq": 1,
+  "signals": [
+    {"id": "RAM_ATF_T_V3", "path": "Transmission", "fmt": { "len": 16, "max": 1023.984375, "div": 64, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variation 3", "suggestedMetric": "transmissionFluidTemperature"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"21": "18"}, "freq": 1,
+  "signals": [
+    {"id": "RAM_ATF_T_V2", "path": "Transmission", "fmt": { "len": 16, "max": 300, "div": 64, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variation 2", "suggestedMetric": "transmissionFluidTemperature"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "04FE"}, "freq": 1,
+  "signals": [
+    {"id": "RAM_ATF_T", "path": "Transmission", "fmt": { "len": 8, "max": 300, "min": -30, "mul": 1.8, "add": -40, "unit": "fahrenheit" }, "name": "Transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "fcm1": true, "dbg": true, "cmd": {"22": "5503"}, "freq": 1,
   "signals": [
     {"id": "RAM_GEAR", "path": "Transmission", "name": "Current gear", "description": "The automatic transmission gear.", "fmt": {"bix": 4, "len": 4, "map": {
           "0":  { "description": "Neutral",      "value": "NEUTRAL" },
@@ -90,7 +116,7 @@
         }}
     }
   ]},
-{ "hdr": "7E1", "fcm1": true, "dbg": true, "cmd": {"22": "5504"}, "freq": 1,
+{ "hdr": "7E1", "rax": "7E9", "fcm1": true, "dbg": true, "cmd": {"22": "5504"}, "freq": 1,
   "signals": [
     {"id": "RAM_GEAR_TARGET", "path": "Transmission", "name": "Target gear", "description": "The target gear.", "fmt": {"bix": 4, "len": 4, "map": {
           "0":  { "description": "Neutral",      "value": "NEUTRAL" },
@@ -166,8 +192,8 @@
   ]},
 { "hdr": "DAC7", "rax": "C7", "dbg": true, "cmd": {"22": "013C"}, "freq": 5,
   "signals": [
-    {"id": "RAM_TP_FL_V2", "path": "Tires", "fmt": {           "len": 16, "max": 65.535,             "div": 1000,             "nullmin": 0,   "unit": "bars"    }, "name": "Front left tire pressure",    "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "RAM_TT_FL",    "path": "Tires", "fmt": {"bix": 16, "len": 8,  "max": 205,    "min": -50,              "add": -50, "nullmin": -50, "unit": "celsius" }, "name": "Front left tire temperature"}
+    {"id": "RAM_TP_FL_V3", "path": "Tires", "fmt": {           "len": 16, "max": 65.535,             "div": 1000,             "nullmin": 0,   "unit": "bars"    }, "name": "Front left tire pressure",    "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "RAM_TT_FL_V2", "path": "Tires", "fmt": {"bix": 16, "len": 8,  "max": 205,    "min": -50,              "add": -50, "nullmin": -50, "unit": "celsius" }, "name": "Front left tire temperature"}
   ]},
 { "hdr": "DAC7", "rax": "C7", "dbg": true, "cmd": {"22": "013D"}, "freq": 5,
   "signals": [
