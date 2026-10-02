@@ -1840,7 +1840,7 @@
   ]},
 { "hdr": "7AB", "rax": "52B", "fcm1": true, "dbg": true, "cmd": {"22": "2802"}, "freq": 0.25,
   "signals": [
-    {"id": "RAM_GPS_HEADING",      "path": "GPS", "fmt": {"bix": 152, "len": 16, "max": 65535, "unit": "degrees" }, "name": "Heading"},
+    {"id": "RAM_GPS_HEADING",      "path": "GPS", "fmt": {"bix": 152, "len": 16, "max": 360, "div": 10, "unit": "degrees" }, "name": "Heading"},
     {"id": "RAM_GPS_SATS_TRACKED", "path": "GPS", "fmt": {"bix": 200, "len": 4,  "max": 15,    "unit": "scalar"  }, "name": "Satellites, tracked"},
     {"id": "RAM_GPS_SATS_VISIBLE", "path": "GPS", "fmt": {"bix": 204, "len": 4,  "max": 15,    "unit": "scalar"  }, "name": "Satellites, visible"}
   ]},
@@ -2056,7 +2056,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0227"}, "freq": 30,
   "signals": [
-    {"id": "RAM_FLI_INPUT", "path": "Fuel", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "Fuel level input", "suggestedMetric": "fuelTankLevel"}
+    {"id": "RAM_FLI_INPUT", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level input", "suggestedMetric": "fuelTankLevel"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "022A"}, "freq": 1,
   "signals": [
