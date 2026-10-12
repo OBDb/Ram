@@ -1763,10 +1763,14 @@
   ]},
 { "hdr": "740", "rax": "4C0", "fcm1": true, "dbg": true, "cmd": {"22": "A0A1"}, "freq": 15,
   "signals": [
-    {"id": "RAM_TP_FL_740", "path": "Tires", "fmt": {           "len": 8, "max": 255, "unit": "psi" }, "name": "Front left tire pressure, altitude compensated",  "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "RAM_TP_FR_740", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 255, "unit": "psi" }, "name": "Front right tire pressure, altitude compensated", "suggestedMetric": "frontRightTirePressure"},
-    {"id": "RAM_TP_RR_740", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 255, "unit": "psi" }, "name": "Rear right tire pressure, altitude compensated",  "suggestedMetric": "rearRightTirePressure"},
-    {"id": "RAM_TP_RL_740", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 255, "unit": "psi" }, "name": "Rear left tire pressure, altitude compensated",   "suggestedMetric": "rearLeftTirePressure"}
+    {"id": "RAM_TP_FL_740", "path": "Tires", "fmt": {           "len": 8, "max": 255,               "unit": "psi" }, "name": "Front left tire pressure, altitude compensated",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "RAM_TP_FL_AC",  "path": "Tires", "fmt": {           "len": 8, "max": 255, "nullmin": 0, "unit": "psi" }, "name": "Front left tire pressure, altitude compensated",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "RAM_TP_FR_740", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 255,               "unit": "psi" }, "name": "Front right tire pressure, altitude compensated", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "RAM_TP_FR_AC",  "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 255, "nullmin": 0, "unit": "psi" }, "name": "Front right tire pressure, altitude compensated", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "RAM_TP_RR_740", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 255,               "unit": "psi" }, "name": "Rear right tire pressure, altitude compensated",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "RAM_TP_RR_AC",  "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 255, "nullmin": 0, "unit": "psi" }, "name": "Rear right tire pressure, altitude compensated",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "RAM_TP_RL_740", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 255,               "unit": "psi" }, "name": "Rear left tire pressure, altitude compensated",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "RAM_TP_RL_AC",  "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 255, "nullmin": 0, "unit": "psi" }, "name": "Rear left tire pressure, altitude compensated",   "suggestedMetric": "rearLeftTirePressure"}
   ]},
 { "hdr": "740", "rax": "4C0", "fcm1": true, "dbg": true, "cmd": {"22": "A0A5"}, "freq": 15,
   "signals": [
