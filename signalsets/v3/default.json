@@ -67,7 +67,7 @@
   ]},
 { "hdr": "6A2", "rax": "682", "fcm1": true, "dbg": true, "cmd": {"22": "D8FB"}, "freq": 5,
   "signals": [
-    {"id": "RAM_ECT_V2", "path": "Engine", "fmt": { "len": 16, "max": 3276, "min": -3276, "div": 10, "sign": true, "unit": "celsius" }, "name": "Coolant temperature", "suggestedMetric": "engineCoolantTemperature"}
+    {"id": "RAM_ECT", "path": "Engine", "fmt": { "len": 16, "max": 3276, "min": -3276, "div": 10, "sign": true, "unit": "celsius" }, "name": "Coolant temperature", "suggestedMetric": "engineCoolantTemperature"}
   ]},
 { "hdr": "6A2", "rax": "682", "fcm1": true, "dbg": true, "cmd": {"22": "D8FF"}, "freq": 1,
   "signals": [
@@ -75,7 +75,7 @@
   ]},
 { "hdr": "6A6", "rax": "686", "fcm1": true, "dbg": true, "cmd": {"22": "D407"}, "freq": 0.25,
   "signals": [
-    {"id": "RAM_ACCEL_PEDAL_POS_V2", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "percent" }, "name": "Accelerator pedal position"}
+    {"id": "RAM_ACCEL_PEDAL_POS", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "percent" }, "name": "Accelerator pedal position"}
   ]},
 { "hdr": "6A6", "rax": "686", "fcm1": true, "dbg": true, "cmd": {"22": "D49C"}, "freq": 30,
   "signals": [
@@ -179,7 +179,7 @@
   ]},
 { "hdr": "6A8", "rax": "688", "fcm1": true, "dbg": true, "cmd": {"22": "D41F"}, "freq": 1,
   "signals": [
-    {"id": "RAM_FUEL_P_V2", "path": "Fuel", "fmt": { "len": 16, "max": 32.76, "min": -32.76, "div": 999.9999525026, "sign": true, "unit": "bars" }, "name": "Fuel pressure"}
+    {"id": "RAM_FUEL_P", "path": "Fuel", "fmt": { "len": 16, "max": 32.76, "min": -32.76, "div": 999.9999525026, "sign": true, "unit": "bars" }, "name": "Fuel pressure"}
   ]},
 { "hdr": "6A8", "rax": "688", "fcm1": true, "dbg": true, "cmd": {"22": "D421"}, "freq": 1,
   "signals": [
@@ -1533,7 +1533,7 @@
   ]},
 { "hdr": "6B4", "rax": "694", "fcm1": true, "dbg": true, "cmd": {"22": "D410"}, "freq": 1,
   "signals": [
-    {"id": "RAM_HVBAT_SOC", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 512, "unit": "percent" }, "name": "High voltage battery charge (calibrated)", "suggestedMetric": "stateOfCharge"}
+    {"id": "RAM_HVBAT_SOC", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 512, "unit": "percent" }, "name": "High voltage battery charge, calibrated", "suggestedMetric": "stateOfCharge"}
   ]},
 { "hdr": "6B4", "rax": "694", "fcm1": true, "dbg": true, "cmd": {"22": "D413"}, "freq": 1,
   "signals": [
@@ -1692,7 +1692,7 @@
   ]},
 { "hdr": "6B4", "rax": "694", "fcm1": true, "dbg": true, "cmd": {"22": "D49C"}, "freq": 1,
   "signals": [
-    {"id": "RAM_ODO_V3", "path": "Trips", "fmt": { "len": 32, "max": 429496729, "div": 1000, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "RAM_ODO_V3", "path": "Trips", "fmt": { "len": 32, "max": 4294967, "div": 1000, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "6B4", "rax": "694", "fcm1": true, "dbg": true, "cmd": {"22": "D802"}, "freq": 0.25,
   "signals": [
@@ -1737,8 +1737,8 @@
   ]},
 { "hdr": "6B4", "rax": "694", "fcm1": true, "dbg": true, "cmd": {"22": "D865"}, "freq": 1,
   "signals": [
-    {"id": "RAM_HVBAT_KWH",          "path": "Battery", "fmt": { "len": 16, "max": 3276.75, "div": 64,  "unit": "kilowattHours" }, "name": "HV battery energy",                                 "description": "Energy stored in the high voltage battery"},
-    {"id": "RAM_HV_BATT_SOC_HI_RES", "path": "Battery", "fmt": { "len": 16, "max": 100,     "div": 100, "unit": "percent"       }, "name": "Traction battery state of charge, high resolution", "description": "Tracks the charge level, 1-2 points below 308_HV_BATT_SOC."}
+    {"id": "RAM_HVBAT_KWH",          "path": "Battery", "fmt": { "len": 16, "max": 1023, "div": 64,  "unit": "kilowattHours" }, "name": "HV battery energy",                                 "description": "Energy stored in the high voltage battery"},
+    {"id": "RAM_HV_BATT_SOC_HI_RES", "path": "Battery", "fmt": { "len": 16, "max": 100,  "div": 100, "unit": "percent"       }, "name": "Traction battery state of charge, high resolution", "description": "Tracks the charge level, 1-2 points below 308_HV_BATT_SOC."}
   ]},
 { "hdr": "6B4", "rax": "694", "fcm1": true, "dbg": true, "cmd": {"22": "D86F"}, "freq": 1,
   "signals": [
@@ -1970,7 +1970,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "B7"}, "freq": 1,
   "signals": [
-    {"id": "RAM_FUEL_P", "path": "Fuel", "fmt": {"bix": 200, "len": 16, "max": 6553, "div": 10, "unit": "kilopascal" }, "name": "Fuel pressure"}
+    {"id": "RAM_FUEL_P_V2", "path": "Fuel", "fmt": {"bix": 200, "len": 16, "max": 6553, "div": 10, "unit": "kilopascal" }, "name": "Fuel pressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "CA"}, "freq": 5,
   "signals": [
@@ -2020,7 +2020,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "011D"}, "freq": 5,
   "signals": [
-    {"id": "RAM_ECT", "path": "Engine", "fmt": { "len": 8, "max": 191, "min": -64, "add": -64, "unit": "celsius" }, "name": "Engine coolant temperature"}
+    {"id": "RAM_ECT_V2", "path": "Engine", "fmt": { "len": 8, "max": 191, "min": -64, "add": -64, "unit": "celsius" }, "name": "Engine coolant temperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0127"}, "freq": 5,
   "signals": [
@@ -2220,7 +2220,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "114B"}, "freq": 0.25,
   "signals": [
-    {"id": "RAM_ACCEL_PEDAL_POS", "path": "Movement", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51, "unit": "percent" }, "name": "Accelerator pedal position"}
+    {"id": "RAM_ACCEL_PEDAL_POS_V2", "path": "Movement", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51, "unit": "percent" }, "name": "Accelerator pedal position"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1247"}, "freq": 0.25,
   "signals": [
